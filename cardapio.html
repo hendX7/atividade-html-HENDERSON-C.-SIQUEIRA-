@@ -1,0 +1,1038 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Restaurante Sabor Bom</title>
+
+    <meta name="description"
+          content="Restaurante Sabor Bom — comida caseira, saborosa e preparada com carinho.">
+
+    <style>
+        /* =====================================================
+           RESET
+        ===================================================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f8f4ed;
+            color: #2b1714;
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        /* =====================================================
+           CORES
+        ===================================================== */
+
+        :root {
+            --vermelho: #7d1714;
+            --vermelho-escuro: #4d0d0b;
+            --dourado: #dca52c;
+            --dourado-claro: #f4c95d;
+            --creme: #f8f4ed;
+            --branco: #ffffff;
+            --texto: #2b1714;
+            --cinza: #716765;
+            --sombra: 0 15px 40px rgba(60, 20, 10, 0.12);
+        }
+
+        /* =====================================================
+           HEADER
+        ===================================================== */
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(77, 13, 11, 0.96);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(244, 201, 93, 0.25);
+        }
+
+        .nav {
+            max-width: 1200px;
+            height: 82px;
+            margin: auto;
+            padding: 0 25px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: white;
+        }
+
+        .logo-icon {
+            font-size: 38px;
+        }
+
+        .logo-text {
+            font-family: Georgia, serif;
+            font-size: 29px;
+            font-style: italic;
+            color: white;
+        }
+
+        .logo small {
+            display: block;
+            font-family: Arial, sans-serif;
+            font-size: 9px;
+            letter-spacing: 5px;
+            color: var(--dourado-claro);
+            text-align: center;
+            font-style: normal;
+        }
+
+        .menu {
+            display: flex;
+            gap: 35px;
+            list-style: none;
+        }
+
+        .menu a {
+            color: white;
+            font-weight: bold;
+            font-size: 14px;
+            transition: 0.3s;
+            position: relative;
+        }
+
+        .menu a::after {
+            content: "";
+            position: absolute;
+            width: 0;
+            height: 2px;
+            left: 50%;
+            bottom: -9px;
+            background: var(--dourado-claro);
+            transition: 0.3s;
+            transform: translateX(-50%);
+        }
+
+        .menu a:hover {
+            color: var(--dourado-claro);
+        }
+
+        .menu a:hover::after {
+            width: 100%;
+        }
+
+        /* =====================================================
+           HERO
+        ===================================================== */
+
+        .hero {
+            min-height: 720px;
+            padding: 150px 25px 90px;
+
+            display: flex;
+            align-items: center;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(20, 8, 6, 0.96) 0%,
+                    rgba(20, 8, 6, 0.85) 45%,
+                    rgba(20, 8, 6, 0.25) 100%
+                ),
+                url("https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=1800&q=85")
+                center/cover no-repeat;
+        }
+
+        .hero-content {
+            width: 1200px;
+            margin: auto;
+            color: white;
+        }
+
+        .hero-label {
+            color: var(--dourado-claro);
+            font-weight: bold;
+            letter-spacing: 5px;
+            font-size: 15px;
+            margin-bottom: 18px;
+        }
+
+        .hero h1 {
+            font-family: Georgia, serif;
+            font-size: clamp(55px, 7vw, 92px);
+            line-height: 0.95;
+            max-width: 650px;
+        }
+
+        .hero h1 span {
+            color: var(--dourado-claro);
+        }
+
+        .linha {
+            width: 65px;
+            height: 3px;
+            background: var(--dourado);
+            margin: 28px 0;
+        }
+
+        .hero h2 {
+            font-family: Georgia, serif;
+            font-size: 24px;
+            margin-bottom: 12px;
+        }
+
+        .hero p {
+            max-width: 550px;
+            color: #e7e1dc;
+            font-size: 17px;
+        }
+
+        .botao {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+
+            margin-top: 30px;
+            padding: 15px 28px;
+
+            background: linear-gradient(
+                135deg,
+                var(--dourado-claro),
+                var(--dourado)
+            );
+
+            color: #3b1b0e;
+            border-radius: 50px;
+
+            font-weight: bold;
+            transition: 0.3s;
+
+            box-shadow: 0 8px 25px rgba(220, 165, 44, 0.3);
+        }
+
+        .botao:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 14px 30px rgba(220, 165, 44, 0.45);
+        }
+
+        /* =====================================================
+           SEÇÕES
+        ===================================================== */
+
+        section {
+            scroll-margin-top: 100px;
+        }
+
+        .container {
+            max-width: 1150px;
+            margin: auto;
+            padding: 90px 25px;
+        }
+
+        .titulo {
+            text-align: center;
+            margin-bottom: 55px;
+        }
+
+        .titulo .icone {
+            font-size: 35px;
+            margin-bottom: 10px;
+        }
+
+        .titulo h2 {
+            font-family: Georgia, serif;
+            font-size: 43px;
+            color: var(--vermelho);
+        }
+
+        .titulo p {
+            color: var(--cinza);
+            margin-top: 8px;
+        }
+
+        .titulo::after {
+            content: "";
+            display: block;
+            width: 80px;
+            height: 2px;
+            background: var(--dourado);
+            margin: 18px auto;
+        }
+
+        /* =====================================================
+           CARDS DO CARDÁPIO
+        ===================================================== */
+
+        .cardapio {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 18px;
+            overflow: hidden;
+            box-shadow: var(--sombra);
+            transition: 0.35s;
+            border: 1px solid rgba(125, 23, 20, 0.08);
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(60, 20, 10, 0.18);
+        }
+
+        .card-top {
+            padding: 30px 25px 20px;
+            text-align: center;
+        }
+
+        .card-icon {
+            width: 65px;
+            height: 65px;
+            margin: 0 auto 18px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background: var(--vermelho);
+            color: white;
+            border-radius: 50%;
+            font-size: 30px;
+
+            box-shadow: 0 8px 20px rgba(125, 23, 20, 0.25);
+        }
+
+        .card h3 {
+            font-family: Georgia, serif;
+            color: var(--vermelho);
+            font-size: 23px;
+        }
+
+        .card-linha {
+            width: 50px;
+            height: 2px;
+            background: var(--dourado);
+            margin: 12px auto 20px;
+        }
+
+        .item {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+
+            padding: 13px 0;
+            border-bottom: 1px dashed #ddd;
+            font-size: 14px;
+        }
+
+        .item:last-child {
+            border-bottom: none;
+        }
+
+        .preco {
+            font-weight: bold;
+            color: var(--vermelho);
+            white-space: nowrap;
+        }
+
+        .card-image {
+            height: 180px;
+            object-fit: cover;
+            width: 100%;
+        }
+
+        /* =====================================================
+           SOBRE
+        ===================================================== */
+
+        .sobre {
+            background: white;
+        }
+
+        .sobre-box {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 45px;
+            align-items: center;
+        }
+
+        .sobre-img {
+            width: 100%;
+            height: 430px;
+            object-fit: cover;
+            border-radius: 20px;
+            box-shadow: var(--sombra);
+        }
+
+        .sobre-texto h2 {
+            font-family: Georgia, serif;
+            font-size: 42px;
+            color: var(--vermelho);
+            margin-bottom: 20px;
+        }
+
+        .sobre-texto p {
+            color: var(--cinza);
+            margin-bottom: 16px;
+        }
+
+        .assinatura {
+            font-family: Georgia, serif;
+            font-style: italic;
+            color: var(--vermelho);
+            font-size: 25px;
+            margin-top: 25px;
+        }
+
+        /* =====================================================
+           CONTATO
+        ===================================================== */
+
+        .contato {
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(125, 23, 20, 0.98),
+                    rgba(77, 13, 11, 0.98)
+                );
+            color: white;
+        }
+
+        .contato-box {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .contato h2 {
+            font-family: Georgia, serif;
+            font-size: 43px;
+            margin-bottom: 20px;
+        }
+
+        .contato p {
+            margin: 15px 0;
+            color: #f1e6df;
+        }
+
+        .info {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .info span:first-child {
+            width: 45px;
+            height: 45px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background: var(--dourado);
+            color: #3d180d;
+            border-radius: 50%;
+        }
+
+        .whatsapp {
+            display: inline-block;
+            margin-top: 20px;
+            background: #25d366;
+            color: white;
+            padding: 14px 25px;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .whatsapp:hover {
+            transform: translateY(-3px);
+            filter: brightness(1.1);
+        }
+
+        /* =====================================================
+           FOOTER
+        ===================================================== */
+
+        footer {
+            background: #350806;
+            color: white;
+            text-align: center;
+            padding: 45px 20px;
+        }
+
+        footer .logo {
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .social {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin: 20px 0;
+        }
+
+        .social a {
+            width: 42px;
+            height: 42px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+
+            transition: 0.3s;
+        }
+
+        .social a:hover {
+            background: var(--dourado);
+            color: #350806;
+            transform: translateY(-4px);
+        }
+
+        footer p {
+            color: #cdbebb;
+            font-size: 14px;
+        }
+
+        /* =====================================================
+           ANIMAÇÃO
+        ===================================================== */
+
+        .animar {
+            opacity: 0;
+            transform: translateY(25px);
+            animation: aparecer 1s ease forwards;
+        }
+
+        @keyframes aparecer {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* =====================================================
+           RESPONSIVIDADE
+        ===================================================== */
+
+        @media (max-width: 900px) {
+
+            .menu {
+                gap: 15px;
+            }
+
+            .cardapio {
+                grid-template-columns: 1fr;
+            }
+
+            .sobre-box,
+            .contato-box {
+                grid-template-columns: 1fr;
+            }
+
+            .sobre-img {
+                height: 320px;
+            }
+        }
+
+        @media (max-width: 650px) {
+
+            .nav {
+                height: auto;
+                padding: 15px;
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .menu {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 18px;
+            }
+
+            .hero {
+                padding-top: 190px;
+                min-height: 700px;
+            }
+
+            .hero h1 {
+                font-size: 54px;
+            }
+
+            .hero h2 {
+                font-size: 20px;
+            }
+
+            .container {
+                padding: 65px 18px;
+            }
+
+            .titulo h2,
+            .sobre-texto h2,
+            .contato h2 {
+                font-size: 34px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- =====================================================
+         CABEÇALHO
+    ====================================================== -->
+
+    <header>
+        <nav class="nav">
+
+            <a href="#inicio" class="logo">
+                <span class="logo-icon">👨‍🍳</span>
+
+                <span class="logo-text">
+                    Sabor Bom
+                    <small>RESTAURANTE</small>
+                </span>
+            </a>
+
+            <ul class="menu">
+                <li><a href="#inicio">INÍCIO</a></li>
+                <li><a href="#cardapio">CARDÁPIO</a></li>
+                <li><a href="#sobre">SOBRE</a></li>
+                <li><a href="#contato">CONTATO</a></li>
+            </ul>
+
+        </nav>
+    </header>
+
+
+    <!-- =====================================================
+         INÍCIO
+    ====================================================== -->
+
+    <section class="hero" id="inicio">
+
+        <div class="hero-content animar">
+
+            <div class="hero-label">
+                👨‍🍳 &nbsp; BEM-VINDO AO
+            </div>
+
+            <h1>
+                Restaurante<br>
+                <span>Sabor Bom</span>
+            </h1>
+
+            <div class="linha"></div>
+
+            <h2>
+                Comida caseira com muito sabor!
+            </h2>
+
+            <p>
+                Aqui você encontra refeições preparadas com carinho,
+                ingredientes selecionados e aquele sabor especial
+                que só a comida feita em casa tem.
+            </p>
+
+            <a href="#cardapio" class="botao">
+                🍽️ &nbsp; VER CARDÁPIO
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         CARDÁPIO
+    ====================================================== -->
+
+    <section id="cardapio">
+
+        <div class="container">
+
+            <div class="titulo">
+                <div class="icone">👨‍🍳</div>
+
+                <h2>Nosso Cardápio</h2>
+
+                <p>
+                    Opções deliciosas para todos os gostos!
+                </p>
+            </div>
+
+
+            <div class="cardapio">
+
+                <!-- PRATOS -->
+
+                <article class="card">
+
+                    <div class="card-top">
+
+                        <div class="card-icon">
+                            🍛
+                        </div>
+
+                        <h3>Pratos Principais</h3>
+
+                        <div class="card-linha"></div>
+
+                        <div class="item">
+                            <span>Arroz, feijão e carne</span>
+                            <span class="preco">R$ 20,00</span>
+                        </div>
+
+                        <div class="item">
+                            <span>Frango grelhado</span>
+                            <span class="preco">R$ 18,00</span>
+                        </div>
+
+                        <div class="item">
+                            <span>Macarronada</span>
+                            <span class="preco">R$ 22,00</span>
+                        </div>
+
+                    </div>
+
+                    <img
+                        class="card-image"
+                        src="https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=900&q=80"
+                        alt="Prato de comida">
+
+                </article>
+
+
+                <!-- BEBIDAS -->
+
+                <article class="card">
+
+                    <div class="card-top">
+
+                        <div class="card-icon">
+                            🥤
+                        </div>
+
+                        <h3>Bebidas</h3>
+
+                        <div class="card-linha"></div>
+
+                        <div class="item">
+                            <span>Refrigerante</span>
+                            <span class="preco">R$ 5,00</span>
+                        </div>
+
+                        <div class="item">
+                            <span>Suco natural</span>
+                            <span class="preco">R$ 6,00</span>
+                        </div>
+
+                        <div class="item">
+                            <span>Água mineral</span>
+                            <span class="preco">R$ 3,00</span>
+                        </div>
+
+                    </div>
+
+                    <img
+                        class="card-image"
+                        src="https://images.unsplash.com/photo-1544145945-f90425340c7e?auto=format&fit=crop&w=900&q=80"
+                        alt="Bebidas">
+
+                </article>
+
+
+                <!-- SOBREMESAS -->
+
+                <article class="card">
+
+                    <div class="card-top">
+
+                        <div class="card-icon">
+                            🍰
+                        </div>
+
+                        <h3>Sobremesas</h3>
+
+                        <div class="card-linha"></div>
+
+                        <div class="item">
+                            <span>Pudim</span>
+                            <span class="preco">R$ 8,00</span>
+                        </div>
+
+                        <div class="item">
+                            <span>Brigadeiro</span>
+                            <span class="preco">R$ 5,00</span>
+                        </div>
+
+                        <div class="item">
+                            <span>Salada de frutas</span>
+                            <span class="preco">R$ 7,00</span>
+                        </div>
+
+                    </div>
+
+                    <img
+                        class="card-image"
+                        src="https://images.unsplash.com/photo-1551024506-0bccd828d307?auto=format&fit=crop&w=900&q=80"
+                        alt="Sobremesa">
+
+                </article>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         SOBRE
+    ====================================================== -->
+
+    <section class="sobre" id="sobre">
+
+        <div class="container">
+
+            <div class="sobre-box">
+
+                <img
+                    class="sobre-img"
+                    src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1000&q=85"
+                    alt="Interior do Restaurante Sabor Bom">
+
+                <div class="sobre-texto">
+
+                    <h2>Sobre nós</h2>
+
+                    <p>
+                        No Restaurante Sabor Bom, acreditamos que
+                        boa comida tem o poder de unir pessoas e
+                        criar momentos inesquecíveis.
+                    </p>
+
+                    <p>
+                        Nosso compromisso é oferecer pratos caseiros,
+                        preparados com ingredientes frescos e muito
+                        amor em cada detalhe.
+                    </p>
+
+                    <p>
+                        Venha conhecer nosso restaurante e aproveitar
+                        uma experiência especial.
+                    </p>
+
+                    <div class="assinatura">
+                        Sinta-se em casa! ❤️
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         CONTATO
+    ====================================================== -->
+
+    <section class="contato" id="contato">
+
+        <div class="container">
+
+            <div class="contato-box">
+
+                <div>
+
+                    <h2>
+                        Entre em contato
+                    </h2>
+
+                    <div class="info">
+                        <span>📞</span>
+                        <p>(00) 00000-0000</p>
+                    </div>
+
+                    <div class="info">
+                        <span>📍</span>
+                        <p>Rua Principal, nº 100<br>
+                        Centro — Sua Cidade / UF</p>
+                    </div>
+
+                    <div class="info">
+                        <span>🕐</span>
+                        <p>Segunda a sábado<br>
+                        Das 11h às 22h</p>
+                    </div>
+
+                    <a
+                        class="whatsapp"
+                        href="https://wa.me/5500000000000"
+                        target="_blank">
+                        💬 Fale conosco
+                    </a>
+
+                </div>
+
+                <div style="font-size:150px; text-align:center;">
+                    🍽️
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         RODAPÉ
+    ====================================================== -->
+
+    <footer>
+
+        <div class="logo">
+
+            <span class="logo-icon">👨‍🍳</span>
+
+            <span class="logo-text">
+                Sabor Bom
+                <small>RESTAURANTE</small>
+            </span>
+
+        </div>
+
+        <div class="social">
+
+            <a href="#" aria-label="Instagram">
+                📷
+            </a>
+
+            <a href="#" aria-label="Facebook">
+                f
+            </a>
+
+            <a href="#" aria-label="WhatsApp">
+                ☎
+            </a>
+
+        </div>
+
+        <p>
+            © 2026 Restaurante Sabor Bom —
+            Todos os direitos reservados.
+        </p>
+
+    </footer>
+
+
+    <!-- =====================================================
+         JAVASCRIPT
+    ====================================================== -->
+
+    <script>
+
+        // Destaca o link da seção atual
+        const links = document.querySelectorAll(".menu a");
+
+        window.addEventListener("scroll", () => {
+
+            let atual = "";
+
+            document.querySelectorAll("section").forEach(secao => {
+
+                const topo = secao.offsetTop - 150;
+
+                if (window.scrollY >= topo) {
+                    atual = secao.getAttribute("id");
+                }
+
+            });
+
+            links.forEach(link => {
+
+                link.style.color = "white";
+
+                if (link.getAttribute("href") === "#" + atual) {
+                    link.style.color = "#f4c95d";
+                }
+
+            });
+
+        });
+
+
+        // Pequena animação ao entrar na tela
+        const elementos = document.querySelectorAll(".card, .sobre-box");
+
+        const observador = new IntersectionObserver(
+            (entradas) => {
+
+                entradas.forEach((entrada, indice) => {
+
+                    if (entrada.isIntersecting) {
+
+                        entrada.target.style.opacity = "1";
+                        entrada.target.style.transform = "translateY(0)";
+                        entrada.target.style.transition =
+                            "opacity 0.7s ease, transform 0.7s ease";
+
+                    }
+
+                });
+
+            },
+            {
+                threshold: 0.15
+            }
+        );
+
+        elementos.forEach(elemento => {
+
+            elemento.style.opacity = "0";
+            elemento.style.transform = "translateY(30px)";
+
+            observador.observe(elemento);
+
+        });
+
+    </script>
+
+</body>
+</html>
