@@ -1,0 +1,2353 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+        content="Tech Store - tecnologia, inovação e futuro.">
+
+    <title>TechStore — Tecnologia do Futuro</title>
+
+
+    <style>
+
+        /* =========================================
+           RESET
+        ========================================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family:
+                Arial,
+                Helvetica,
+                sans-serif;
+
+            background: #030712;
+            color: #f8fafc;
+
+            overflow-x: hidden;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        button,
+        input,
+        textarea {
+            font: inherit;
+        }
+
+
+        /* =========================================
+           FUNDO
+        ========================================= */
+
+        body::before {
+            content: "";
+
+            position: fixed;
+
+            width: 500px;
+            height: 500px;
+
+            top: -180px;
+            left: -150px;
+
+            background: #2563eb;
+
+            opacity: .14;
+
+            filter: blur(150px);
+
+            pointer-events: none;
+
+            z-index: -1;
+        }
+
+        body::after {
+            content: "";
+
+            position: fixed;
+
+            width: 500px;
+            height: 500px;
+
+            right: -180px;
+            bottom: -180px;
+
+            background: #7c3aed;
+
+            opacity: .13;
+
+            filter: blur(150px);
+
+            pointer-events: none;
+
+            z-index: -1;
+        }
+
+
+        /* =========================================
+           SCROLLBAR
+        ========================================= */
+
+        ::-webkit-scrollbar {
+            width: 9px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #020617;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(
+                #2563eb,
+                #7c3aed
+            );
+
+            border-radius: 20px;
+        }
+
+
+        /* =========================================
+           HEADER
+        ========================================= */
+
+        header {
+            position: fixed;
+
+            top: 0;
+            left: 0;
+
+            width: 100%;
+
+            z-index: 999;
+
+            padding: 18px 7%;
+
+            display: flex;
+
+            justify-content: space-between;
+            align-items: center;
+
+            background:
+                rgba(3, 7, 18, .72);
+
+            backdrop-filter: blur(18px);
+
+            border-bottom:
+                1px solid
+                rgba(255,255,255,.07);
+        }
+
+
+        .logo {
+            font-size: 25px;
+
+            font-weight: 900;
+
+            letter-spacing: -1px;
+        }
+
+
+        .logo span {
+            color: #3b82f6;
+        }
+
+
+        nav {
+            display: flex;
+
+            align-items: center;
+
+            gap: 28px;
+        }
+
+
+        nav a {
+            position: relative;
+
+            color: #94a3b8;
+
+            font-size: 14px;
+
+            font-weight: 700;
+
+            transition: .3s;
+        }
+
+
+        nav a::after {
+            content: "";
+
+            position: absolute;
+
+            left: 0;
+            bottom: -7px;
+
+            width: 0;
+            height: 2px;
+
+            background: #3b82f6;
+
+            transition: .3s;
+        }
+
+
+        nav a:hover {
+            color: white;
+        }
+
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+
+        .menu-btn {
+            display: none;
+
+            border: none;
+
+            background: transparent;
+
+            color: white;
+
+            font-size: 28px;
+
+            cursor: pointer;
+        }
+
+
+        /* =========================================
+           HERO
+        ========================================= */
+
+        .hero {
+            min-height: 100vh;
+
+            padding:
+                150px 7%
+                80px;
+
+            display: flex;
+
+            justify-content: center;
+            align-items: center;
+
+            text-align: center;
+
+            position: relative;
+        }
+
+
+        .hero-content {
+            max-width: 950px;
+        }
+
+
+        .badge {
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 8px;
+
+            padding:
+                9px 17px;
+
+            border-radius: 50px;
+
+            background:
+                rgba(37,99,235,.1);
+
+            border:
+                1px solid
+                rgba(96,165,250,.35);
+
+            color: #60a5fa;
+
+            font-size: 13px;
+
+            font-weight: 800;
+
+            margin-bottom: 28px;
+
+            animation:
+                float 3s ease-in-out infinite;
+        }
+
+
+        .dot {
+            width: 8px;
+            height: 8px;
+
+            border-radius: 50%;
+
+            background: #22c55e;
+
+            box-shadow:
+                0 0 15px #22c55e;
+        }
+
+
+        .hero h1 {
+            font-size:
+                clamp(
+                    48px,
+                    8vw,
+                    94px
+                );
+
+            line-height: .93;
+
+            font-weight: 950;
+
+            letter-spacing: -5px;
+
+            margin-bottom: 28px;
+        }
+
+
+        .gradient-text {
+            background:
+                linear-gradient(
+                    90deg,
+                    #60a5fa,
+                    #818cf8,
+                    #c084fc,
+                    #38bdf8
+                );
+
+            -webkit-background-clip: text;
+
+            background-clip: text;
+
+            color: transparent;
+
+            background-size: 300% 300%;
+
+            animation:
+                gradient 5s ease infinite;
+        }
+
+
+        .hero p {
+            max-width: 700px;
+
+            margin: auto;
+
+            color: #94a3b8;
+
+            font-size: 18px;
+
+            line-height: 1.8;
+        }
+
+
+        .hero-buttons {
+            margin-top: 38px;
+
+            display: flex;
+
+            justify-content: center;
+
+            gap: 14px;
+
+            flex-wrap: wrap;
+        }
+
+
+        .btn {
+            padding:
+                15px 25px;
+
+            border-radius: 12px;
+
+            font-weight: 800;
+
+            border: none;
+
+            cursor: pointer;
+
+            transition:
+                .3s;
+        }
+
+
+        .btn-primary {
+            background:
+                linear-gradient(
+                    135deg,
+                    #2563eb,
+                    #7c3aed
+                );
+
+            color: white;
+
+            box-shadow:
+                0 12px 35px
+                rgba(37,99,235,.28);
+        }
+
+
+        .btn-primary:hover {
+            transform:
+                translateY(-5px);
+
+            box-shadow:
+                0 18px 45px
+                rgba(37,99,235,.4);
+        }
+
+
+        .btn-outline {
+            border:
+                1px solid
+                #334155;
+
+            background:
+                rgba(255,255,255,.03);
+
+            color: white;
+        }
+
+
+        .btn-outline:hover {
+            background:
+                rgba(255,255,255,.08);
+
+            transform:
+                translateY(-5px);
+        }
+
+
+        /* =========================================
+           SCROLL INDICATOR
+        ========================================= */
+
+        .scroll-down {
+            position: absolute;
+
+            bottom: 30px;
+            left: 50%;
+
+            transform:
+                translateX(-50%);
+
+            color: #64748b;
+
+            font-size: 12px;
+
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 8px;
+
+            align-items: center;
+        }
+
+
+        .mouse {
+            width: 22px;
+            height: 34px;
+
+            border:
+                2px solid
+                #475569;
+
+            border-radius: 20px;
+
+            position: relative;
+        }
+
+
+        .mouse::before {
+            content: "";
+
+            position: absolute;
+
+            top: 6px;
+            left: 50%;
+
+            width: 3px;
+            height: 7px;
+
+            background: #60a5fa;
+
+            border-radius: 5px;
+
+            transform:
+                translateX(-50%);
+        }
+
+
+        /* =========================================
+           SEÇÕES
+        ========================================= */
+
+        section {
+            padding:
+                110px 7%;
+        }
+
+
+        .section-header {
+            text-align: center;
+
+            margin-bottom: 60px;
+        }
+
+
+        .section-label {
+            color: #60a5fa;
+
+            font-size: 12px;
+
+            font-weight: 900;
+
+            letter-spacing: 3px;
+
+            text-transform: uppercase;
+        }
+
+
+        .section-header h2 {
+            margin-top: 12px;
+
+            font-size:
+                clamp(32px,5vw,52px);
+
+            letter-spacing: -2px;
+        }
+
+
+        .section-header p {
+            margin-top: 15px;
+
+            color: #64748b;
+
+            line-height: 1.7;
+        }
+
+
+        /* =========================================
+           PRODUTOS
+        ========================================= */
+
+        .products {
+            display: grid;
+
+            grid-template-columns:
+                repeat(
+                    3,
+                    minmax(0,1fr)
+                );
+
+            gap: 24px;
+        }
+
+
+        .product {
+            position: relative;
+
+            padding: 32px;
+
+            border-radius: 24px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(255,255,255,.075),
+                    rgba(255,255,255,.025)
+                );
+
+            border:
+                1px solid
+                rgba(255,255,255,.08);
+
+            overflow: hidden;
+
+            transition: .4s;
+        }
+
+
+        .product:hover {
+            transform:
+                translateY(-10px);
+
+            border-color:
+                rgba(96,165,250,.45);
+
+            box-shadow:
+                0 25px 60px
+                rgba(0,0,0,.35);
+        }
+
+
+        .product-top {
+            display: flex;
+
+            justify-content:
+                space-between;
+
+            align-items:
+                flex-start;
+        }
+
+
+        .product-icon {
+            width: 70px;
+            height: 70px;
+
+            display: flex;
+
+            justify-content: center;
+            align-items: center;
+
+            font-size: 34px;
+
+            border-radius: 18px;
+
+            background:
+                rgba(37,99,235,.13);
+
+            border:
+                1px solid
+                rgba(96,165,250,.12);
+        }
+
+
+        .discount {
+            padding:
+                6px 10px;
+
+            border-radius: 8px;
+
+            background:
+                rgba(34,197,94,.12);
+
+            color: #4ade80;
+
+            font-size: 11px;
+
+            font-weight: 900;
+        }
+
+
+        .product h3 {
+            margin-top: 28px;
+
+            font-size: 23px;
+        }
+
+
+        .product-description {
+            margin-top: 12px;
+
+            color: #94a3b8;
+
+            line-height: 1.7;
+
+            font-size: 14px;
+        }
+
+
+        .stars {
+            margin-top: 18px;
+
+            color: #facc15;
+
+            letter-spacing: 2px;
+
+            font-size: 14px;
+        }
+
+
+        .product-bottom {
+            margin-top: 25px;
+
+            display: flex;
+
+            justify-content:
+                space-between;
+
+            align-items:
+                center;
+        }
+
+
+        .price small {
+            display: block;
+
+            color: #64748b;
+
+            text-decoration:
+                line-through;
+
+            font-size: 12px;
+
+            margin-bottom: 3px;
+        }
+
+
+        .price strong {
+            color: white;
+
+            font-size: 20px;
+        }
+
+
+        .buy {
+            padding:
+                11px 16px;
+
+            border: none;
+
+            border-radius: 10px;
+
+            background: #2563eb;
+
+            color: white;
+
+            font-weight: 800;
+
+            cursor: pointer;
+
+            transition: .3s;
+        }
+
+
+        .buy:hover {
+            background: #3b82f6;
+
+            transform:
+                scale(1.05);
+        }
+
+
+        /* =========================================
+           BENEFÍCIOS
+        ========================================= */
+
+        .benefits {
+            display: grid;
+
+            grid-template-columns:
+                repeat(
+                    4,
+                    1fr
+                );
+
+            gap: 18px;
+        }
+
+
+        .benefit {
+            padding: 28px;
+
+            border-radius: 18px;
+
+            background:
+                rgba(255,255,255,.035);
+
+            border:
+                1px solid
+                rgba(255,255,255,.07);
+
+            transition: .3s;
+        }
+
+
+        .benefit:hover {
+            transform:
+                translateY(-6px);
+
+            border-color:
+                #2563eb;
+        }
+
+
+        .benefit-icon {
+            font-size: 30px;
+
+            margin-bottom: 18px;
+        }
+
+
+        .benefit h3 {
+            font-size: 17px;
+
+            margin-bottom: 9px;
+        }
+
+
+        .benefit p {
+            color: #64748b;
+
+            font-size: 13px;
+
+            line-height: 1.6;
+        }
+
+
+        /* =========================================
+           ESTATÍSTICAS
+        ========================================= */
+
+        .stats {
+            display: grid;
+
+            grid-template-columns:
+                repeat(4,1fr);
+
+            gap: 20px;
+        }
+
+
+        .stat {
+            text-align: center;
+
+            padding: 35px 20px;
+
+            border-radius: 20px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(37,99,235,.1),
+                    rgba(124,58,237,.06)
+                );
+
+            border:
+                1px solid
+                rgba(255,255,255,.07);
+        }
+
+
+        .stat strong {
+            display: block;
+
+            font-size: 38px;
+
+            color: #60a5fa;
+
+            margin-bottom: 8px;
+        }
+
+
+        .stat span {
+            color: #94a3b8;
+
+            font-size: 13px;
+        }
+
+
+        /* =========================================
+           SOBRE
+        ========================================= */
+
+        .about {
+            display: grid;
+
+            grid-template-columns:
+                1fr 1fr;
+
+            gap: 70px;
+
+            align-items: center;
+        }
+
+
+        .about h2 {
+            font-size:
+                clamp(35px,5vw,55px);
+
+            line-height: 1;
+
+            letter-spacing: -3px;
+
+            margin:
+                14px 0 25px;
+        }
+
+
+        .about h2 span {
+            color: #3b82f6;
+        }
+
+
+        .about p {
+            color: #94a3b8;
+
+            line-height: 1.9;
+        }
+
+
+        .about-list {
+            margin-top: 25px;
+
+            display: grid;
+
+            gap: 13px;
+        }
+
+
+        .about-list div {
+            display: flex;
+
+            gap: 12px;
+
+            align-items: center;
+
+            color: #cbd5e1;
+
+            font-weight: 700;
+
+            font-size: 14px;
+        }
+
+
+        .check {
+            width: 25px;
+            height: 25px;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 50%;
+
+            background:
+                rgba(34,197,94,.13);
+
+            color: #4ade80;
+        }
+
+
+        /* =========================================
+           DESAFIO
+        ========================================= */
+
+        .challenge {
+            max-width: 1000px;
+
+            margin: auto;
+
+            padding: 60px 45px;
+
+            text-align: center;
+
+            border-radius: 28px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(37,99,235,.16),
+                    rgba(124,58,237,.14)
+                );
+
+            border:
+                1px solid
+                rgba(96,165,250,.2);
+        }
+
+
+        .challenge-icon {
+            font-size: 45px;
+
+            margin-bottom: 15px;
+        }
+
+
+        .challenge h2 {
+            font-size: 38px;
+
+            margin-bottom: 18px;
+        }
+
+
+        .challenge p {
+            max-width: 720px;
+
+            margin: auto;
+
+            color: #cbd5e1;
+
+            line-height: 1.8;
+        }
+
+
+        /* =========================================
+           METAS
+        ========================================= */
+
+        .goals {
+            max-width: 850px;
+
+            margin: auto;
+        }
+
+
+        .goal {
+            display: flex;
+
+            align-items: center;
+
+            gap: 20px;
+
+            padding: 22px;
+
+            margin-bottom: 15px;
+
+            border-radius: 17px;
+
+            background:
+                rgba(255,255,255,.035);
+
+            border:
+                1px solid
+                rgba(255,255,255,.07);
+
+            transition: .3s;
+        }
+
+
+        .goal:hover {
+            transform:
+                translateX(8px);
+
+            border-color:
+                #2563eb;
+        }
+
+
+        .goal-number {
+            min-width: 48px;
+            height: 48px;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 50%;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #2563eb,
+                    #7c3aed
+                );
+
+            font-weight: 900;
+        }
+
+
+        .goal p {
+            color: #cbd5e1;
+
+            font-weight: 700;
+        }
+
+
+        /* =========================================
+           CONTATO
+        ========================================= */
+
+        .contact {
+            max-width: 800px;
+
+            margin: auto;
+
+            padding: 35px;
+
+            border-radius: 22px;
+
+            background:
+                rgba(255,255,255,.035);
+
+            border:
+                1px solid
+                rgba(255,255,255,.08);
+        }
+
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+
+        .form-group label {
+            display: block;
+
+            margin-bottom: 8px;
+
+            color: #cbd5e1;
+
+            font-size: 13px;
+
+            font-weight: 700;
+        }
+
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+
+            padding: 14px 15px;
+
+            background:
+                #0f172a;
+
+            border:
+                1px solid
+                #1e293b;
+
+            border-radius: 10px;
+
+            color: white;
+
+            outline: none;
+
+            transition: .3s;
+        }
+
+
+        .form-group textarea {
+            min-height: 120px;
+
+            resize: vertical;
+        }
+
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color:
+                #3b82f6;
+
+            box-shadow:
+                0 0 0 3px
+                rgba(59,130,246,.1);
+        }
+
+
+        /* =========================================
+           FOOTER
+        ========================================= */
+
+        footer {
+            padding:
+                45px 7%;
+
+            border-top:
+                1px solid
+                rgba(255,255,255,.07);
+
+            text-align: center;
+
+            color: #64748b;
+        }
+
+
+        footer strong {
+            color: #60a5fa;
+        }
+
+
+        /* =========================================
+           ANIMAÇÕES
+        ========================================= */
+
+        @keyframes float {
+
+            0%,100% {
+                transform:
+                    translateY(0);
+            }
+
+            50% {
+                transform:
+                    translateY(-5px);
+            }
+        }
+
+
+        @keyframes gradient {
+
+            0% {
+                background-position:
+                    0% 50%;
+            }
+
+            50% {
+                background-position:
+                    100% 50%;
+            }
+
+            100% {
+                background-position:
+                    0% 50%;
+            }
+        }
+
+
+        /* =========================================
+           RESPONSIVIDADE
+        ========================================= */
+
+        @media(max-width:950px) {
+
+            .products {
+                grid-template-columns:
+                    repeat(2,1fr);
+            }
+
+            .benefits {
+                grid-template-columns:
+                    repeat(2,1fr);
+            }
+
+            .stats {
+                grid-template-columns:
+                    repeat(2,1fr);
+            }
+
+            .about {
+                grid-template-columns:
+                    1fr;
+            }
+        }
+
+
+        @media(max-width:700px) {
+
+            header {
+                padding:
+                    16px 5%;
+            }
+
+            nav {
+                display: none;
+
+                position: absolute;
+
+                top: 70px;
+
+                left: 5%;
+                right: 5%;
+
+                padding: 20px;
+
+                flex-direction: column;
+
+                background:
+                    rgba(3,7,18,.96);
+
+                border:
+                    1px solid
+                    rgba(255,255,255,.08);
+
+                border-radius: 15px;
+
+                gap: 20px;
+            }
+
+            nav.active {
+                display: flex;
+            }
+
+            .menu-btn {
+                display: block;
+            }
+
+            section {
+                padding:
+                    80px 5%;
+            }
+
+            .hero h1 {
+                letter-spacing:
+                    -3px;
+            }
+
+            .products {
+                grid-template-columns:
+                    1fr;
+            }
+
+            .benefits {
+                grid-template-columns:
+                    1fr;
+            }
+
+            .stats {
+                grid-template-columns:
+                    1fr 1fr;
+            }
+
+            .challenge {
+                padding:
+                    40px 22px;
+            }
+        }
+
+
+        @media(max-width:450px) {
+
+            .hero h1 {
+                font-size: 44px;
+            }
+
+            .hero p {
+                font-size: 15px;
+            }
+
+            .stats {
+                grid-template-columns:
+                    1fr;
+            }
+
+            .goal {
+                align-items:
+                    flex-start;
+            }
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================
+         HEADER
+    ====================================== -->
+
+    <header>
+
+        <a href="#inicio" class="logo">
+            TECH<span>STORE</span>
+        </a>
+
+
+        <nav id="nav">
+
+            <a href="#inicio">
+                Início
+            </a>
+
+            <a href="#produtos">
+                Produtos
+            </a>
+
+            <a href="#beneficios">
+                Benefícios
+            </a>
+
+            <a href="#sobre">
+                Sobre
+            </a>
+
+            <a href="#metas">
+                Metas
+            </a>
+
+            <a href="#contato">
+                Contato
+            </a>
+
+        </nav>
+
+
+        <button
+            class="menu-btn"
+            id="menuBtn"
+            aria-label="Abrir menu">
+
+            ☰
+
+        </button>
+
+    </header>
+
+
+
+    <!-- =====================================
+         HERO
+    ====================================== -->
+
+    <section class="hero" id="inicio">
+
+        <div class="hero-content">
+
+            <div class="badge">
+
+                <span class="dot"></span>
+
+                TECNOLOGIA DO FUTURO
+
+            </div>
+
+
+            <h1>
+
+                Tecnologia que
+                <br>
+
+                <span class="gradient-text">
+                    transforma ideias.
+                </span>
+
+            </h1>
+
+
+            <p>
+
+                Bem-vindo à TechStore.
+                Um projeto criado para unir
+                tecnologia, criatividade e
+                desenvolvimento web em uma
+                experiência moderna.
+
+            </p>
+
+
+            <div class="hero-buttons">
+
+                <a
+                    href="#produtos"
+                    class="btn btn-primary">
+
+                    Explorar produtos →
+
+                </a>
+
+
+                <a
+                    href="#sobre"
+                    class="btn btn-outline">
+
+                    Conhecer a loja
+
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="scroll-down">
+
+            <div class="mouse"></div>
+
+            ROLE PARA BAIXO
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================
+         PRODUTOS
+    ====================================== -->
+
+    <section id="produtos">
+
+        <div class="section-header">
+
+            <span class="section-label">
+                Catálogo
+            </span>
+
+            <h2>
+                Produtos em destaque
+            </h2>
+
+            <p>
+                Tecnologia escolhida para
+                acompanhar seu dia.
+            </p>
+
+        </div>
+
+
+        <div class="products">
+
+
+            <!-- PRODUTO 1 -->
+
+            <article class="product">
+
+                <div class="product-top">
+
+                    <div class="product-icon">
+                        💻
+                    </div>
+
+                    <span class="discount">
+                        -15%
+                    </span>
+
+                </div>
+
+
+                <h3>
+                    Notebook Pro
+                </h3>
+
+
+                <p class="product-description">
+
+                    Performance para estudos,
+                    programação, trabalho e
+                    entretenimento.
+
+                </p>
+
+
+                <div class="stars">
+                    ★★★★★
+                </div>
+
+
+                <div class="product-bottom">
+
+                    <div class="price">
+
+                        <small>
+                            R$ 4.999
+                        </small>
+
+                        <strong>
+                            R$ 4.249
+                        </strong>
+
+                    </div>
+
+
+                    <button
+                        class="buy"
+                        onclick="comprar('Notebook Pro')">
+
+                        Comprar
+
+                    </button>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- PRODUTO 2 -->
+
+            <article class="product">
+
+                <div class="product-top">
+
+                    <div class="product-icon">
+                        📱
+                    </div>
+
+                    <span class="discount">
+                        -20%
+                    </span>
+
+                </div>
+
+
+                <h3>
+                    Smartphone Ultra
+                </h3>
+
+
+                <p class="product-description">
+
+                    Desempenho, câmera,
+                    conectividade e recursos
+                    para todos os momentos.
+
+                </p>
+
+
+                <div class="stars">
+                    ★★★★★
+                </div>
+
+
+                <div class="product-bottom">
+
+                    <div class="price">
+
+                        <small>
+                            R$ 2.999
+                        </small>
+
+                        <strong>
+                            R$ 2.399
+                        </strong>
+
+                    </div>
+
+
+                    <button
+                        class="buy"
+                        onclick="comprar('Smartphone Ultra')">
+
+                        Comprar
+
+                    </button>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- PRODUTO 3 -->
+
+            <article class="product">
+
+                <div class="product-top">
+
+                    <div class="product-icon">
+                        🎧
+                    </div>
+
+                    <span class="discount">
+                        -25%
+                    </span>
+
+                </div>
+
+
+                <h3>
+                    Headphone Air
+                </h3>
+
+
+                <p class="product-description">
+
+                    Som envolvente e conforto
+                    para músicas, filmes,
+                    jogos e chamadas.
+
+                </p>
+
+
+                <div class="stars">
+                    ★★★★★
+                </div>
+
+
+                <div class="product-bottom">
+
+                    <div class="price">
+
+                        <small>
+                            R$ 399
+                        </small>
+
+                        <strong>
+                            R$ 299
+                        </strong>
+
+                    </div>
+
+
+                    <button
+                        class="buy"
+                        onclick="comprar('Headphone Air')">
+
+                        Comprar
+
+                    </button>
+
+                </div>
+
+            </article>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================
+         BENEFÍCIOS
+    ====================================== -->
+
+    <section id="beneficios">
+
+        <div class="section-header">
+
+            <span class="section-label">
+                Por que escolher?
+            </span>
+
+            <h2>
+                Uma experiência diferente
+            </h2>
+
+        </div>
+
+
+        <div class="benefits">
+
+
+            <div class="benefit">
+
+                <div class="benefit-icon">
+                    ⚡
+                </div>
+
+                <h3>
+                    Alta performance
+                </h3>
+
+                <p>
+                    Produtos pensados para
+                    entregar desempenho.
+                </p>
+
+            </div>
+
+
+            <div class="benefit">
+
+                <div class="benefit-icon">
+                    🛡️
+                </div>
+
+                <h3>
+                    Segurança
+                </h3>
+
+                <p>
+                    Uma experiência simples,
+                    transparente e confiável.
+                </p>
+
+            </div>
+
+
+            <div class="benefit">
+
+                <div class="benefit-icon">
+                    🚀
+                </div>
+
+                <h3>
+                    Inovação
+                </h3>
+
+                <p>
+                    Tecnologia moderna para
+                    acompanhar o futuro.
+                </p>
+
+            </div>
+
+
+            <div class="benefit">
+
+                <div class="benefit-icon">
+                    💎
+                </div>
+
+                <h3>
+                    Qualidade
+                </h3>
+
+                <p>
+                    Design e experiência
+                    pensados nos detalhes.
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================
+         ESTATÍSTICAS
+    ====================================== -->
+
+    <section>
+
+        <div class="stats">
+
+
+            <div class="stat">
+
+                <strong data-number="100">
+                    0
+                </strong>
+
+                <span>
+                    % criatividade
+                </span>
+
+            </div>
+
+
+            <div class="stat">
+
+                <strong data-number="3">
+                    0
+                </strong>
+
+                <span>
+                    produtos
+                </span>
+
+            </div>
+
+
+            <div class="stat">
+
+                <strong data-number="24">
+                    0
+                </strong>
+
+                <span>
+                    horas de inovação
+                </span>
+
+            </div>
+
+
+            <div class="stat">
+
+                <strong>
+                    ∞
+                </strong>
+
+                <span>
+                    possibilidades
+                </span>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================
+         SOBRE
+    ====================================== -->
+
+    <section id="sobre">
+
+        <div class="about">
+
+
+            <div>
+
+                <span class="section-label">
+                    Sobre o projeto
+                </span>
+
+
+                <h2>
+
+                    Mais que uma loja.
+                    <br>
+
+                    <span>
+                        Uma experiência.
+                    </span>
+
+                </h2>
+
+
+                <p>
+
+                    A TechStore nasceu como um
+                    projeto de desenvolvimento web.
+                    A ideia é colocar em prática
+                    conceitos de HTML, CSS e
+                    JavaScript enquanto criamos
+                    uma página moderna e criativa.
+
+                </p>
+
+
+                <div class="about-list">
+
+                    <div>
+
+                        <span class="check">
+                            ✓
+                        </span>
+
+                        Design moderno
+
+                    </div>
+
+
+                    <div>
+
+                        <span class="check">
+                            ✓
+                        </span>
+
+                        Página responsiva
+
+                    </div>
+
+
+                    <div>
+
+                        <span class="check">
+                            ✓
+                        </span>
+
+                        HTML, CSS e JavaScript
+
+                    </div>
+
+
+                    <div>
+
+                        <span class="check">
+                            ✓
+                        </span>
+
+                        Projeto criativo
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="challenge">
+
+                <div class="challenge-icon">
+                    🚀
+                </div>
+
+                <h2>
+                    Desafio
+                </h2>
+
+                <p>
+
+                    Esta página representa minha
+                    evolução no desenvolvimento web.
+                    Quero aprender cada vez mais,
+                    criar projetos melhores e
+                    transformar ideias em experiências
+                    digitais.
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================
+         METAS
+    ====================================== -->
+
+    <section id="metas">
+
+        <div class="section-header">
+
+            <span class="section-label">
+                Próximos passos
+            </span>
+
+            <h2>
+                Minhas 3 metas
+            </h2>
+
+            <p>
+                Objetivos para continuar evoluindo.
+            </p>
+
+        </div>
+
+
+        <div class="goals">
+
+            <ol>
+
+
+                <li class="goal">
+
+                    <div class="goal-number">
+                        01
+                    </div>
+
+                    <p>
+                        Aprender HTML, CSS e
+                        JavaScript cada vez mais.
+                    </p>
+
+                </li>
+
+
+                <li class="goal">
+
+                    <div class="goal-number">
+                        02
+                    </div>
+
+                    <p>
+                        Desenvolver projetos
+                        incríveis e criativos.
+                    </p>
+
+                </li>
+
+
+                <li class="goal">
+
+                    <div class="goal-number">
+                        03
+                    </div>
+
+                    <p>
+                        Trabalhar com tecnologia
+                        e construir um futuro
+                        profissional de sucesso.
+                    </p>
+
+                </li>
+
+
+            </ol>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================
+         CONTATO
+    ====================================== -->
+
+    <section id="contato">
+
+        <div class="section-header">
+
+            <span class="section-label">
+                Fale conosco
+            </span>
+
+            <h2>
+                Entre em contato
+            </h2>
+
+            <p>
+                Envie uma mensagem para a TechStore.
+            </p>
+
+        </div>
+
+
+        <form
+            class="contact"
+            onsubmit="enviarMensagem(event)">
+
+
+            <div class="form-group">
+
+                <label>
+                    Seu nome
+                </label>
+
+                <input
+                    type="text"
+                    id="nome"
+                    placeholder="Digite seu nome"
+                    required>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>
+                    Seu e-mail
+                </label>
+
+                <input
+                    type="email"
+                    placeholder="Digite seu e-mail"
+                    required>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>
+                    Mensagem
+                </label>
+
+                <textarea
+                    placeholder="Digite sua mensagem"
+                    required></textarea>
+
+            </div>
+
+
+            <button
+                class="btn btn-primary"
+                type="submit">
+
+                Enviar mensagem 🚀
+
+            </button>
+
+        </form>
+
+    </section>
+
+
+
+    <!-- =====================================
+         FOOTER
+    ====================================== -->
+
+    <footer>
+
+        <p>
+
+            © 2026
+            <strong>TechStore</strong>
+
+            — Projeto desenvolvido com
+            HTML, CSS e JavaScript.
+
+        </p>
+
+    </footer>
+
+
+
+    <!-- =====================================
+         JAVASCRIPT
+    ====================================== -->
+
+    <script>
+
+
+        /* MENU MOBILE */
+
+        const menuBtn =
+            document.getElementById(
+                "menuBtn"
+            );
+
+        const nav =
+            document.getElementById(
+                "nav"
+            );
+
+
+        menuBtn.addEventListener(
+            "click",
+            () => {
+
+                nav.classList.toggle(
+                    "active"
+                );
+
+            }
+        );
+
+
+        /* FECHAR MENU AO CLICAR */
+
+        document
+            .querySelectorAll(
+                "nav a"
+            )
+            .forEach(link => {
+
+                link.addEventListener(
+                    "click",
+                    () => {
+
+                        nav.classList.remove(
+                            "active"
+                        );
+
+                    }
+                );
+
+            });
+
+
+        /* BOTÃO COMPRAR */
+
+        function comprar(produto) {
+
+            alert(
+                "🛒 " +
+                produto +
+                " foi selecionado!"
+            );
+
+        }
+
+
+        /* FORMULÁRIO */
+
+        function enviarMensagem(event) {
+
+            event.preventDefault();
+
+            const nome =
+                document.getElementById(
+                    "nome"
+                ).value;
+
+            alert(
+                "🚀 Obrigado, " +
+                nome +
+                "! Sua mensagem foi enviada."
+            );
+
+            event.target.reset();
+
+        }
+
+
+        /* CONTADORES */
+
+        const counters =
+            document.querySelectorAll(
+                "[data-number]"
+            );
+
+
+        let started = false;
+
+
+        function iniciarContadores() {
+
+            if (started) return;
+
+            started = true;
+
+
+            counters.forEach(
+                counter => {
+
+                    const target =
+                        Number(
+                            counter.dataset.number
+                        );
+
+                    let current = 0;
+
+
+                    const interval =
+                        setInterval(
+                            () => {
+
+                                current +=
+                                    Math.ceil(
+                                        target / 30
+                                    );
+
+
+                                if (
+                                    current >=
+                                    target
+                                ) {
+
+                                    current =
+                                        target;
+
+                                    clearInterval(
+                                        interval
+                                    );
+
+                                }
+
+
+                                counter.textContent =
+                                    current;
+
+                            },
+                            40
+                        );
+
+                }
+            );
+
+        }
+
+
+        window.addEventListener(
+            "scroll",
+            () => {
+
+                const stats =
+                    document.querySelector(
+                        ".stats"
+                    );
+
+                const position =
+                    stats.getBoundingClientRect()
+                        .top;
+
+
+                if (
+                    position <
+                    window.innerHeight - 100
+                ) {
+
+                    iniciarContadores();
+
+                }
+
+            }
+        );
+
+    </script>
+
+</body>
+
+</html>

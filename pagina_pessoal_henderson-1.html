@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Henderson | Minha Página Pessoal</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            min-height: 100vh;
+            color: #f8fafc;
+            background: linear-gradient(135deg, #0f172a, #1e1b4b, #111827);
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: auto;
+        }
+
+        header {
+            text-align: center;
+            padding: 35px 20px;
+        }
+
+        header h1 {
+            font-size: clamp(2.2rem, 6vw, 4rem);
+            margin-bottom: 10px;
+            background: linear-gradient(90deg, #38bdf8, #a78bfa);
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+
+        header p {
+            color: #cbd5e1;
+            font-size: 1.05rem;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.07);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 20px;
+            padding: 28px;
+            margin: 20px 0;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+            backdrop-filter: blur(10px);
+        }
+
+        .card h2 {
+            color: #7dd3fc;
+            margin-bottom: 15px;
+        }
+
+        .card p {
+            color: #e2e8f0;
+            line-height: 1.7;
+        }
+
+        ul {
+            list-style: none;
+            display: grid;
+            gap: 12px;
+        }
+
+        li {
+            background: rgba(255,255,255,0.06);
+            padding: 14px 16px;
+            border-radius: 12px;
+            color: #e2e8f0;
+        }
+
+        .spotify {
+            display: inline-block;
+            margin-top: 18px;
+            padding: 13px 22px;
+            border-radius: 12px;
+            background: #1db954;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.2s;
+        }
+
+        .spotify:hover {
+            transform: translateY(-2px);
+            background: #1ed760;
+        }
+
+        footer {
+            text-align: center;
+            color: #94a3b8;
+            padding: 25px 0 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+
+        <header>
+            <h1>Minha Página Pessoal</h1>
+            <p>Bem-vindo ao meu espaço!</p>
+        </header>
+
+        <main>
+            <section class="card">
+                <h2>👋 Sobre mim</h2>
+                <p>
+                    Olá! Meu nome é <strong>Henderson</strong>.
+                    Estou aprendendo programação e gosto de praticar esportes
+                    e aproveitar meu tempo livre.
+                </p>
+            </section>
+
+            <section class="card">
+                <h2>⚡ Meus hobbies</h2>
+                <ul>
+                    <li>⚽ Jogar futsal</li>
+                    <li>🏃 Correr</li>
+                    <li>🎵 Escutar música</li>
+                </ul>
+            </section>
+
+            <section class="card">
+                <h2>🎧 Meu site favorito</h2>
+                <p>
+                    Meu site favorito para ouvir minhas músicas é o Spotify.
+                </p>
+
+                <a class="spotify"
+                   href="https://www.spotify.com/br/"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    🎵 Acessar o Spotify
+                </a>
+            </section>
+        </main>
+
+        <footer>
+            <p>© 2026 Henderson • Minha Página Pessoal</p>
+        </footer>
+
+    </div>
+</body>
+</html>
