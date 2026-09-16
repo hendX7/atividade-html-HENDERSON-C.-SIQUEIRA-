@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<!-- Define o documento como HTML5 -->
+<html lang="pt-br">
+<!-- Define o idioma como português do Brasil -->
+<head>
+    <meta charset="UTF-8">
+    <!-- Permite o uso de acentos -->
+    <title>Formulário</title>
+    <!-- Define o título da página -->
+</head>
+<body>
+<h1>Formulário</h1>
+<!-- Título principal -->
+<form>
+<!-- Inicia o formulário -->
+<fieldset>
+<!-- Agrupa os dados pessoais -->
+    <legend>Dados pessoais</legend>
+    <!-- Título do grupo -->
+    <label for="nome">Nome:</label>
+    <input type="text" id="nome" name="nome">
+    <!-- Campo para informar o nome -->
+    <br>
+    <label for="endereco">Endereço:</label>
+    <input type="text" id="endereco" name="endereco">
+    <!-- Campo para informar o endereço -->
+    <br>
+    <label for="cidade">Cidade:</label>
+    <input type="text" id="cidade" name="cidade">
+    <!-- Campo para informar a cidade -->
+    <br>
+    <label for="estado">Estado:</label>
+    <select id="estado" name="estado">
+    <!-- Lista para selecionar o estado -->
+        <option value="SP">São Paulo</option>
+        <option value="RJ">Rio de Janeiro</option>
+        <option value="CE">Ceará</option>
+        <option value="PI">Piauí</option>
+    </select>
+</fieldset>
+<br>
+<fieldset>
+<!-- Agrupa os dados profissionais -->
+    <legend>Dados profissionais</legend>
+    <!-- Título do grupo -->
+    <p>Natureza do Cargo</p>
+    <!-- Título das opções de cargo -->
+    <input type="radio" id="gerencia" name="cargo" value="gerencia" checked>
+    <label for="gerencia">Gerência</label>
+    <input type="radio" id="financeiro" name="cargo" value="financeiro">
+    <label for="financeiro">Financeiro</label>
+    <input type="radio" id="recepcao" name="cargo" value="recepcao">
+    <label for="recepcao">Recepção</label>
+    <input type="radio" id="administrativo" name="cargo" value="administrativo">
+    <label for="administrativo">Administrativo</label>
+    <input type="radio" id="juridico" name="cargo" value="juridico">
+    <label for="juridico">Jurídico</label>
+    <!-- Opções de cargo -->
+    <p>Área de interesse</p>
+    <!-- Título das áreas de interesse -->
+    <input type="checkbox" id="computacao" name="interesse" value="computacao">
+    <label for="computacao">Computação</label>
+    <input type="checkbox" id="biologia" name="interesse" value="biologia">
+    <label for="biologia">Biologia</label>
+    <input type="checkbox" id="meioambiente" name="interesse" value="meioambiente">
+    <label for="meioambiente">Meio Ambiente</label>
+    <input type="checkbox" id="engenharia" name="interesse" value="engenharia">
+    <label for="engenharia">Engenharia</label>
+    <input type="checkbox" id="historia" name="interesse" value="historia">
+    <label for="historia">História</label>
+    <!-- Áreas que podem ser selecionadas -->
+    <br>
+    <label for="curriculo">Mini-currículo:</label>
+    <textarea id="curriculo" name="curriculo" rows="5" cols="45"></textarea>
+    <!-- Campo para escrever o mini-currículo -->
+</fieldset>
+<br>
+<input type="submit" value="Enviar">
+<!-- Envia os dados do formulário -->
+<input type="reset" value="Limpar">
+<!-- Limpa os campos preenchidos -->
+</form>
+</body>
+</html>
