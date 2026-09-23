@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Cadastro</title>
+<style>
+*{box-sizing:border-box}
+body{margin:6px;font:12px "Times New Roman"}
+h1{margin:0 0 5px;font-size:24px}
+p{margin:0 0 8px}
+fieldset{margin:0 0 9px;padding:6px 9px 8px;border:1px solid #aaa}
+legend,label{font-weight:bold}
+.campo{display:flex;flex-direction:column;margin-bottom:7px}
+.campo:last-child{margin:0}
+label{margin-bottom:3px}
+input,select{height:21px;width:100%;font:11px "Times New Roman";border:1px solid #aaa;padding:2px 5px}
+.check{display:flex;gap:4px;margin-bottom:8px}
+.check input{width:12px;height:12px}
+.check label{font-weight:normal}
+button{height:23px}
+</style>
+</head>
+<body>
+<!-- Título -->
+<h1>Sistema de Cadastro</h1>
+<!-- Descrição -->
+<p>Preencha todos os campos abaixo para concluir seu cadastro.</p>
+<!-- Dados Pessoais -->
+<fieldset>
+<legend>Dados Pessoais</legend>
+<div class="campo"><label>Nome completo <span class="obrigatorio">*</span></label><input type="text" placeholder="Digite seu nome completo"></div>
+<div class="campo"><label>Data de nascimento <span class="obrigatorio">*</span></label><input type="date"></div>
+<div class="campo"><label>CPF <span class="obrigatorio">*</span></label><input type="text" placeholder="000.000.000-00"></div>
+<div class="campo"><label>RG <span class="obrigatorio">*</span></label><input type="text" placeholder="Digite seu RG"></div>
+<div class="campo"><label>Sexo <span class="obrigatorio">*</span></label><select><option value="">Selecione</option><option>Masculino</option><option>Feminino</option></select></div>
+</fieldset>
+<!-- Contato -->
+<fieldset>
+<legend>Contato</legend>
+<div class="campo"><label>E-mail <span class="obrigatorio">*</span></label><input type="email" placeholder="exemplo@dominio.com"></div>
+<div class="campo"><label>Telefone <span class="obrigatorio">*</span></label><input type="tel" placeholder="(99) 99999-9999"></div>
+<div class="campo"><label>Endereço <span class="obrigatorio">*</span></label><input type="text" placeholder="Digite seu endereço completo"></div>
+<div class="campo"><label>Cidade <span class="obrigatorio">*</span></label><input type="text" placeholder="Digite sua cidade"></div>
+<div class="campo"><label>Estado <span class="obrigatorio">*</span></label><select><option value="">Selecione</option></select></div>
+</fieldset>
+<!-- Acesso -->
+<fieldset>
+<legend>Acesso</legend>
+<div class="campo"><label>Senha <span class="obrigatorio">*</span></label><input type="password" placeholder="Digite sua senha"></div>
+<div class="campo"><label>Confirme a senha <span class="obrigatorio">*</span></label><input type="password" placeholder="Repita sua senha"></div>
+</fieldset>
+<!-- Informações Adicionais -->
+<fieldset>
+<legend>Informações Adicionais</legend>
+<div class="campo"><label>Profissão</label><input type="text" placeholder="Digite sua profissão"></div>
+<div class="campo"><label>Como você nos conheceu?</label><select><option value="">Selecione</option></select></div>
+</fieldset>
+<!-- Termos -->
+<div class="check"><input type="checkbox" id="termos"><label for="termos">Li e aceito os <a href="#">termos de uso</a> e a <a href="#">política de privacidade</a>.</label></div>
+<!-- Botão -->
+<button type="button">Cadastrar</button>
+</body>
+</html>
